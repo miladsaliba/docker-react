@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+before_install: 
+    - docker build -t miladsaliba/docker-react -f Dockerfile.dev . 
+
+script: 
+    - docker run miladsaliba/docker-react npm run test -- --coverage
+    
